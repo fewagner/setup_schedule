@@ -21,33 +21,46 @@ you get a full history for free.
 
 ## One-time setup (repo owner)
 
-1. **Merge this to `main`** (the app reads/writes booking data on `main`).
-2. **Enable GitHub Pages:** repo → *Settings → Pages → Build and deployment →
-   Source: GitHub Actions*. The included workflow
-   (`.github/workflows/pages.yml`) deploys the page on every push to `main`
-   (booking commits under `data/` are excluded, no redeploy needed for them).
-3. If the repository is **private**, note that GitHub Pages for private repos
-   requires a paid plan, and everyone will need a token even to *view*
-   bookings. A **public** repo works on the free plan and can be viewed
-   without any token.
+1. Make `main` the **default branch**: *Settings → General → Default branch*.
+2. **Merge this to `main`** (the app reads/writes booking data on `main`).
+3. **Enable GitHub Pages:** *Settings → Pages → Build and deployment →
+   Source: Deploy from a branch → Branch: `main` / `/ (root)`*.
+   The `.nojekyll` file makes this a plain static deploy (no Jekyll build).
+   If the very first deployment fails with a generic *"Deployment failed,
+   try again later"*, that is usually transient: re-run it from the
+   *Actions* tab, or set the Pages source to *None*, save, and re-enable it.
+4. Keep the repository **public** — Pages on private repos needs a paid
+   plan, and a public repo lets everyone view the calendar without a token.
 
-## One-time setup (every user, takes ~2 minutes)
+## Giving people booking access
 
-Viewing the calendar needs nothing (public repo). To **create or delete
-bookings**, the page commits to this repo on your behalf, so it needs a
-GitHub token:
+To **create or delete bookings**, the page commits to this repo, so it needs
+a GitHub token. The token is only ever kept in the browser's `localStorage`
+and only talks to `api.github.com`.
 
-1. You need a GitHub account with **write access to this repository**
-   (repo owner: *Settings → Collaborators → Add people*).
-2. Create a fine-grained personal access token:
+**Recommended — one shared token (nobody else needs a GitHub account):**
+
+1. The repo owner creates a fine-grained personal access token:
    [github.com/settings/personal-access-tokens/new](https://github.com/settings/personal-access-tokens/new)
    - **Repository access:** *Only select repositories* → this repo
    - **Permissions:** *Contents → Read and write* (nothing else)
-   - Expiration: up to you (you can set up to a year)
-3. Open the booking page, tap **⚙ Settings**, paste the token, **Save**.
+2. Open the booking page, tap **⚙ Settings**, paste the token, **Save**,
+   then tap **Copy share link** and send that link to the group via
+   **private** chat/email. Opening the link once sets the token up
+   automatically on their phone (it's scrubbed from the URL right away).
 
-The token is stored only in `localStorage` of your own browser — it never
-leaves your device except to talk to `api.github.com`.
+⚠️ **Never post the token (or the share link) anywhere public** — not in
+this repo, not on a website. Two things go wrong: (1) anyone in the world
+could edit this repository's contents, and (2) GitHub's secret scanning
+detects leaked tokens in public places and **revokes them automatically
+within minutes**, so a "public token" simply won't keep working. A link
+shared in a private group chat is fine for a trust-based lab tool — if it
+ever leaks, revoke the token on GitHub and share a fresh one.
+
+**Alternative — everyone uses their own token:** each person needs write
+access to the repo (*Settings → Collaborators*) and creates their own token
+as above. Bookings are then committed under each person's own GitHub
+account, which gives a nicer audit trail in the git history.
 
 ## Configuration
 
@@ -98,3 +111,6 @@ const CONFIG = {
   — plenty for a group of three, but add your token if you ever hit it.
 - Deleting is not restricted per person — anyone in the group can delete any
   booking (it's a trust-based tool; the git history keeps everyone honest).
+- With the shared-token setup, all booking commits are authored by the token
+  owner's account; the person who booked is still recorded in the booking's
+  `name` field.

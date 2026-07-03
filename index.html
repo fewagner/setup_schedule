@@ -94,8 +94,14 @@
         GitHub token
         <input type="password" id="f-token" placeholder="github_pat_…" autocomplete="off">
       </label>
+      <p class="muted small-note">
+        <strong>Sharing with the group:</strong> one person can create the token
+        and send the others a <em>share link</em> (via private chat — never post
+        it publicly). Opening the link sets the token up automatically.
+      </p>
       <div class="dialog-buttons">
         <button type="button" class="danger-btn" id="t-clear">Forget token</button>
+        <button type="button" class="secondary-btn" id="t-share">Copy share link</button>
         <button type="button" class="secondary-btn" data-close>Cancel</button>
         <button type="button" class="primary-btn" id="t-save">Save</button>
       </div>
