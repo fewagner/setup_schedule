@@ -1,0 +1,200 @@
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --danger: #dc2626;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ------------------------------ top bar ------------------------------ */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+/* ------------------------------ buttons ------------------------------ */
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 0.45rem 0.8rem;
+  background: var(--surface);
+  color: var(--text);
+}
+
+button:disabled { opacity: 0.6; cursor: default; }
+
+.primary-btn {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  font-weight: 600;
+}
+.primary-btn:hover:not(:disabled) { background: var(--primary-dark); }
+
+.secondary-btn:hover { background: var(--bg); }
+
+.danger-btn {
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 40%, white);
+}
+.danger-btn:hover:not(:disabled) { background: #fef2f2; }
+
+.icon-btn {
+  padding: 0.45rem 0.6rem;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ------------------------------ banner ------------------------------- */
+.banner {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+.banner.info  { background: #eff6ff; color: #1e40af; }
+.banner.warn  { background: #fffbeb; color: #92400e; }
+.banner.error { background: #fef2f2; color: #991b1b; }
+.hidden { display: none !important; }
+
+/* ----------------------------- calendar ------------------------------ */
+main {
+  flex: 1;
+  min-height: 0;
+  padding: 0.6rem;
+}
+
+#calendar {
+  height: 100%;
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+}
+
+.fc .fc-toolbar-title { font-size: 1.05rem; }
+.fc .fc-button {
+  padding: 0.3rem 0.55rem;
+  font-size: 0.85rem;
+}
+.fc-event { cursor: pointer; font-size: 0.78rem; }
+
+/* bookings that already ended */
+.past-event { opacity: 0.45; filter: saturate(0.6); }
+
+/* the "now" line */
+.fc .fc-timegrid-now-indicator-line {
+  border-color: #ef4444;
+  border-width: 2px;
+}
+.fc .fc-timegrid-now-indicator-arrow { border-color: #ef4444; }
+
+/* ------------------------------ dialogs ------------------------------ */
+dialog {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgb(0 0 0 / 0.25);
+  padding: 1.2rem 1.3rem;
+  width: min(26rem, calc(100vw - 2rem));
+}
+dialog::backdrop { background: rgb(15 23 42 / 0.45); }
+
+dialog h2 { margin: 0 0 0.8rem; font-size: 1.1rem; }
+
+dialog label {
+  display: block;
+  margin-bottom: 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+dialog input, dialog select {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.5rem 0.6rem;
+  font: inherit;
+  font-weight: 400;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+dialog input:focus, dialog select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: -1px;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 0.9rem;
+  margin: 0;
+  font-size: 0.9rem;
+}
+.details dt { font-weight: 600; color: var(--muted); }
+.details dd { margin: 0; }
+
+.muted { color: var(--muted); font-weight: 400; }
+.small { font-size: 0.8rem; padding-left: 1.1rem; }
+.small li { margin-bottom: 0.25rem; }
+
+.error {
+  color: var(--danger);
+  font-size: 0.85rem;
+  margin: 0.5rem 0 0;
+}
+
+/* ------------------------------- phone ------------------------------- */
+@media (max-width: 700px) {
+  .topbar h1 { font-size: 0.95rem; }
+  main { padding: 0.35rem; }
+  .fc .fc-toolbar { gap: 0.3rem; }
+  .fc .fc-toolbar-chunk { display: flex; }
+}

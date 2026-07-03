@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="color-scheme" content="light">
+  <title>Measurement Time Booking</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📅</text></svg>">
+  <script src="vendor/fullcalendar-6.1.15.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>📅 Measurement Booking</h1>
+    <div class="topbar-actions">
+      <button id="refresh-btn" class="icon-btn" title="Reload bookings">⟳</button>
+      <button id="new-booking-btn" class="primary-btn">+ Book</button>
+      <button id="settings-btn" class="icon-btn" title="Settings">⚙</button>
+    </div>
+  </header>
+
+  <div id="status-banner" class="banner hidden"></div>
+
+  <main>
+    <div id="calendar"></div>
+  </main>
+
+  <!-- Booking form -->
+  <dialog id="booking-dialog">
+    <form id="booking-form" method="dialog">
+      <h2>New booking</h2>
+      <label>
+        Your name
+        <input type="text" id="f-name" required autocomplete="name" placeholder="Who is measuring?">
+      </label>
+      <label>
+        Setup
+        <select id="f-setup" required></select>
+      </label>
+      <label>
+        Start
+        <input type="datetime-local" id="f-start" required>
+      </label>
+      <label>
+        End
+        <input type="datetime-local" id="f-end" required>
+      </label>
+      <label>
+        Note <span class="muted">(optional)</span>
+        <input type="text" id="f-note" placeholder="e.g. cooldown, calibration run …">
+      </label>
+      <p id="form-error" class="error hidden"></p>
+      <div class="dialog-buttons">
+        <button type="button" class="secondary-btn" data-close>Cancel</button>
+        <button type="submit" class="primary-btn" id="f-submit">Save booking</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Booking details -->
+  <dialog id="details-dialog">
+    <div>
+      <h2 id="d-title"></h2>
+      <dl class="details">
+        <dt>Setup</dt><dd id="d-setup"></dd>
+        <dt>From</dt><dd id="d-start"></dd>
+        <dt>To</dt><dd id="d-end"></dd>
+        <dt>Note</dt><dd id="d-note"></dd>
+        <dt>Booked on</dt><dd id="d-created"></dd>
+      </dl>
+      <p id="details-error" class="error hidden"></p>
+      <div class="dialog-buttons">
+        <button type="button" class="danger-btn" id="d-delete">Delete booking</button>
+        <button type="button" class="secondary-btn" data-close>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Settings / token -->
+  <dialog id="settings-dialog">
+    <div>
+      <h2>Settings</h2>
+      <p class="muted">
+        To <strong>create or delete</strong> bookings, this page needs a GitHub token
+        with write access to this repository. It is stored only in this browser.
+      </p>
+      <ol class="muted small">
+        <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com → Settings → Fine-grained tokens</a></li>
+        <li>Resource owner: the repo owner · Repository access: <em>only this repo</em></li>
+        <li>Permissions: <em>Contents → Read and write</em></li>
+        <li>Generate, copy, and paste it below</li>
+      </ol>
+      <label>
+        GitHub token
+        <input type="password" id="f-token" placeholder="github_pat_…" autocomplete="off">
+      </label>
+      <div class="dialog-buttons">
+        <button type="button" class="danger-btn" id="t-clear">Forget token</button>
+        <button type="button" class="secondary-btn" data-close>Cancel</button>
+        <button type="button" class="primary-btn" id="t-save">Save</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
