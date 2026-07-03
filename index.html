@@ -13,6 +13,7 @@
   <header class="topbar">
     <h1>📅 Measurement Booking</h1>
     <div class="topbar-actions">
+      <button id="rules-btn" class="icon-btn" title="Usage rules">ℹ</button>
       <button id="refresh-btn" class="icon-btn" title="Reload bookings">⟳</button>
       <button id="new-booking-btn" class="primary-btn">+ Book</button>
       <button id="settings-btn" class="icon-btn" title="Settings">⚙</button>
@@ -72,6 +73,26 @@
       <div class="dialog-buttons">
         <button type="button" class="danger-btn" id="d-delete">Delete booking</button>
         <button type="button" class="secondary-btn" data-close>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Usage rules -->
+  <dialog id="rules-dialog">
+    <div>
+      <h2>📏 Usage rules</h2>
+      <ul class="rules">
+        <li>Book only slots that you <strong>really intend to use</strong>.</li>
+        <li>If you realize you are not going to use a slot,
+            <strong>delete the booking</strong> again.</li>
+        <li>There is <strong>no limit</strong> on booking time — try to split
+            the time on shared setups <strong>fairly</strong>, to the best of
+            your knowledge and abilities.</li>
+        <li>Help others and yourself to get the
+            <strong>best science results</strong>. 🔬</li>
+      </ul>
+      <div class="dialog-buttons">
+        <button type="button" class="primary-btn" data-close>Got it</button>
       </div>
     </div>
   </dialog>

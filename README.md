@@ -20,6 +20,16 @@ you get a full history for free.
 - 🔧 The setup list is editable on the page (⚙ Settings) and shared by everyone
 - 🔄 Auto-refreshes every few minutes and whenever you return to the tab
 
+## Usage rules
+
+Shown on the page (ℹ button, and automatically on first visit):
+
+1. Book only slots that you really intend to use.
+2. If you realize you are not going to use a slot, delete the booking again.
+3. There is no limit on booking time — try to split the time on shared
+   setups fairly, to the best of your knowledge and abilities.
+4. Help others and yourself to get the best science results.
+
 ## One-time setup (repo owner)
 
 1. Make `main` the **default branch**: *Settings → General → Default branch*.
