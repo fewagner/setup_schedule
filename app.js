@@ -461,6 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
     openBookingForm(start, end);
   });
   $('#refresh-btn').addEventListener('click', () => reloadData());
+  $('#rules-btn').addEventListener('click', () => $('#rules-dialog').showModal());
   $('#settings-btn').addEventListener('click', openSettings);
   $('#d-delete').addEventListener('click', deleteBooking);
   $('#s-add').addEventListener('click', addSetup);
@@ -501,5 +502,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!getToken()) {
     showBanner('Read-only: add your GitHub token in ⚙ Settings to make bookings.', 'info');
+  }
+
+  // show the usage rules once on a person's first visit
+  if (!localStorage.getItem('rules_seen')) {
+    localStorage.setItem('rules_seen', '1');
+    $('#rules-dialog').showModal();
   }
 });
