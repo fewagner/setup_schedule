@@ -29,6 +29,8 @@ Shown on the page (ℹ button, and automatically on first visit):
 3. There is no limit on booking time — try to split the time on shared
    setups fairly, to the best of your knowledge and abilities.
 4. Help others and yourself to get the best science results.
+5. The best setup is a setup that is used — don't be too cautious in
+   booking time if you see there are slots available.
 
 ## One-time setup (repo owner)
 
