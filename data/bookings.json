@@ -16,5 +16,14 @@
     "end": "2026-07-03T10:00:00.000Z",
     "note": "Calibration",
     "createdAt": "2026-07-03T09:07:00.682Z"
+  },
+  {
+    "id": "b3848837-9646-4fa9-a951-105eaf174add",
+    "name": "Felix",
+    "setup": "Quasiparticles",
+    "start": "2026-07-03T16:00:00.000Z",
+    "end": "2026-07-03T18:00:00.000Z",
+    "note": "",
+    "createdAt": "2026-07-03T11:12:10.386Z"
   }
 ]
