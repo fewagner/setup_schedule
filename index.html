@@ -80,6 +80,20 @@
   <dialog id="settings-dialog">
     <div>
       <h2>Settings</h2>
+
+      <h3>Setups</h3>
+      <p class="muted small-note" style="margin-top:0">
+        The setups offered in the booking dropdown. Removing one keeps all
+        its existing bookings — it only disappears for future bookings.
+      </p>
+      <ul id="setup-list" class="setup-list"></ul>
+      <div class="add-setup-row">
+        <input type="text" id="f-new-setup" placeholder="New setup name">
+        <button type="button" class="secondary-btn" id="s-add">Add</button>
+      </div>
+      <p id="setup-error" class="error hidden"></p>
+
+      <h3>Booking access</h3>
       <p class="muted">
         To <strong>create or delete</strong> bookings, this page needs a GitHub token
         with write access to this repository. It is stored only in this browser.
