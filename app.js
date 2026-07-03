@@ -306,6 +306,15 @@ function openSettings() {
 
 /* -------------------------------- init -------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
+  // One-tap setup via a privately shared link: …/#token=github_pat_xxx
+  // The token is moved into localStorage and scrubbed from the URL so it
+  // doesn't linger in the address bar or get re-shared by accident.
+  const hashToken = location.hash.match(/token=([^&]+)/);
+  if (hashToken) {
+    localStorage.setItem('gh_token', decodeURIComponent(hashToken[1]));
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+
   // populate setup dropdown
   const sel = $('#f-setup');
   CONFIG.setups.forEach((s) => {
@@ -339,6 +348,18 @@ document.addEventListener('DOMContentLoaded', () => {
   $('#t-clear').addEventListener('click', () => {
     localStorage.removeItem('gh_token');
     $('#f-token').value = '';
+  });
+  $('#t-share').addEventListener('click', async () => {
+    const t = $('#f-token').value.trim() || getToken();
+    if (!t) { alert('Save a token first.'); return; }
+    const link = `${location.origin}${location.pathname}#token=${encodeURIComponent(t)}`;
+    try {
+      await navigator.clipboard.writeText(link);
+      $('#t-share').textContent = '✓ Copied';
+      setTimeout(() => { $('#t-share').textContent = 'Copy share link'; }, 2000);
+    } catch {
+      prompt('Copy this link and share it privately:', link);
+    }
   });
   document.querySelectorAll('[data-close]').forEach((btn) =>
     btn.addEventListener('click', () => btn.closest('dialog').close()));

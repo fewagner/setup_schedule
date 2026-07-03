@@ -182,6 +182,7 @@ dialog input:focus, dialog select:focus {
 .details dd { margin: 0; }
 
 .muted { color: var(--muted); font-weight: 400; }
+.small-note { font-size: 0.78rem; margin: 0.6rem 0 0; }
 .small { font-size: 0.8rem; padding-left: 1.1rem; }
 .small li { margin-bottom: 0.25rem; }
 
