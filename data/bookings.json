@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": "73ea2248-c1f3-494f-a8ef-bdcba2fce853",
+    "name": "Felix",
+    "setup": "Microwave Detector",
+    "start": "2026-07-03T13:00:00.000Z",
+    "end": "2026-07-03T14:30:00.000Z",
+    "note": "",
+    "createdAt": "2026-07-03T09:02:29.440Z"
+  }
+]
