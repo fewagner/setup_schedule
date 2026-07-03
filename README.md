@@ -17,6 +17,7 @@ you get a full history for free.
   automatically added **creation timestamp**
 - 🤝 Overlapping bookings are allowed — nothing blocks, people sort it out
 - 🗑 Bookings can be deleted from their detail view
+- 🔧 The setup list is editable on the page (⚙ Settings) and shared by everyone
 - 🔄 Auto-refreshes every few minutes and whenever you return to the tab
 
 ## One-time setup (repo owner)
@@ -64,15 +65,22 @@ account, which gives a nicer audit trail in the git history.
 
 ## Configuration
 
-Edit the `CONFIG` block at the top of [`app.js`](app.js):
+**Setups** (the dropdown choices) are managed directly on the page:
+⚙ Settings → *Setups* → add or remove entries. The list is stored in
+[`data/setups.json`](data/setups.json) and shared by everyone. Removing a
+setup never touches existing bookings — it only disappears from the
+dropdown for future bookings.
+
+Everything else lives in the `CONFIG` block at the top of [`app.js`](app.js):
 
 ```js
 const CONFIG = {
   owner: 'fewagner',
   repo: 'setup_schedule',
-  branch: 'main',                          // branch holding the data
+  branch: 'main',                  // branch holding the data
   dataPath: 'data/bookings.json',
-  setups: ['Setup A', 'Setup B', 'Setup C'],  // ← your setups
+  setupsPath: 'data/setups.json',
+  defaultSetups: ['Setup A', 'Setup B', 'Setup C'],  // fallback only
   autoRefreshMinutes: 5,
 };
 ```
