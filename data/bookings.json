@@ -79,5 +79,14 @@
     "end": "2026-07-06T20:00:00.000Z",
     "note": "",
     "createdAt": "2026-07-06T04:14:29.902Z"
+  },
+  {
+    "id": "760ae32a-ae9f-4f87-ab9a-561f3bd12b65",
+    "name": "Geneviève Gervais",
+    "setup": "Heater",
+    "start": "2026-07-06T16:00:00.000Z",
+    "end": "2026-07-06T19:00:00.000Z",
+    "note": "Calibration",
+    "createdAt": "2026-07-06T11:11:45.548Z"
   }
 ]
