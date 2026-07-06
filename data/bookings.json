@@ -72,15 +72,6 @@
     "createdAt": "2026-07-05T20:18:51.864Z"
   },
   {
-    "id": "aff845a3-00e8-405a-979e-743dbfdb1299",
-    "name": "Felix",
-    "setup": "Quasiparticles",
-    "start": "2026-07-06T17:00:00.000Z",
-    "end": "2026-07-06T20:00:00.000Z",
-    "note": "",
-    "createdAt": "2026-07-06T04:14:29.902Z"
-  },
-  {
     "id": "760ae32a-ae9f-4f87-ab9a-561f3bd12b65",
     "name": "Geneviève Gervais",
     "setup": "Heater",
