@@ -32,6 +32,16 @@ Shown on the page (ℹ button, and automatically on first visit):
 5. The best setup is a setup that is used — don't be too cautious in
    booking time if you see there are slots available.
 
+### Computers ↔ setups
+
+| Computer | Setups |
+| --- | --- |
+| `qcpsi008` | Quasiparticles |
+| `qcpsi010` | Resonators |
+| `qcpsi016` | Microwave Detector, Heater (blocking Crosstalk) |
+| `qcpsi018` | DMS, remote server 1 |
+| `qcpsi021` | Crosstalk, remote server 2 |
+
 ## One-time setup (repo owner)
 
 1. Make `main` the **default branch**: *Settings → General → Default branch*.

@@ -237,6 +237,26 @@ dialog input:focus, dialog select:focus {
 .rules li { margin-bottom: 0.55rem; }
 .rules li:last-child { margin-bottom: 0; }
 
+.legend {
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  width: 100%;
+}
+.legend th, .legend td {
+  text-align: left;
+  padding: 0.3rem 0.6rem 0.3rem 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  font-weight: 400;
+}
+.legend tr:last-child th, .legend tr:last-child td { border-bottom: none; }
+.legend th {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
 .muted { color: var(--muted); font-weight: 400; }
 .small-note { font-size: 0.78rem; margin: 0.6rem 0 0; }
 .small { font-size: 0.8rem; padding-left: 1.1rem; }
