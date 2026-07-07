@@ -90,15 +90,6 @@
     "createdAt": "2026-07-06T13:27:28.053Z"
   },
   {
-    "id": "16e730a4-070a-426c-81c5-8158725384d6",
-    "name": "Geneviève Gervais",
-    "setup": "Heater",
-    "start": "2026-07-07T11:30:00.000Z",
-    "end": "2026-07-07T18:00:00.000Z",
-    "note": "",
-    "createdAt": "2026-07-06T15:35:44.112Z"
-  },
-  {
     "id": "87a95770-1d89-40fb-8a40-e2fe255f2d1d",
     "name": "Peter",
     "setup": "Microwave Detector",
