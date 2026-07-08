@@ -178,5 +178,14 @@
     "end": "2026-07-08T18:00:00.000Z",
     "note": "(added by Felix, original booking was made on 7/7 but for wrong setup)",
     "createdAt": "2026-07-08T08:04:52.292Z"
+  },
+  {
+    "id": "41a30641-e595-40de-91a7-eb5da149eb4c",
+    "name": "Peter",
+    "setup": "Microwave Detector",
+    "start": "2026-07-08T18:00:00.000Z",
+    "end": "2026-07-09T03:00:00.000Z",
+    "note": "",
+    "createdAt": "2026-07-08T12:25:24.305Z"
   }
 ]
