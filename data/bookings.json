@@ -171,15 +171,6 @@
     "createdAt": "2026-07-08T05:47:42.221Z"
   },
   {
-    "id": "7fb53870-cf53-4a62-9d45-9cac0dcadd61",
-    "name": "Geneviève",
-    "setup": "Crosstalk",
-    "start": "2026-07-08T08:00:00.000Z",
-    "end": "2026-07-08T18:00:00.000Z",
-    "note": "",
-    "createdAt": "2026-07-08T06:00:20.996Z"
-  },
-  {
     "id": "d2d7be17-889e-4f2c-a0eb-0f2781f35def",
     "name": "Geneviève",
     "setup": "Heater",
