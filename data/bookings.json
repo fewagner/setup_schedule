@@ -153,15 +153,6 @@
     "createdAt": "2026-07-07T17:46:18.356Z"
   },
   {
-    "id": "0825d5ca-4e52-4144-a05e-d6a41b97e23b",
-    "name": "Geneviève",
-    "setup": "Heater",
-    "start": "2026-07-09T07:00:00.000Z",
-    "end": "2026-07-09T18:00:00.000Z",
-    "note": "",
-    "createdAt": "2026-07-07T19:50:33.387Z"
-  },
-  {
     "id": "9f2f6993-c637-4cb5-91d7-3e3a718e0d32",
     "name": "Felix",
     "setup": "Microwave Detector",
