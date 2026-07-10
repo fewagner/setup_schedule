@@ -82,8 +82,15 @@ function hideBanner() { $('#status-banner').className = 'banner hidden'; }
 /* ----------------------- GitHub data storage -------------------------- */
 
 // Reads a JSON file from the repo. Returns { data, sha, missing }.
+// cache:'no-store' is essential: the GitHub API sends Cache-Control
+// max-age=60, so a plain fetch can return an up-to-a-minute-old copy —
+// stale calendars, and stale shas that make every save 409 as a
+// "write conflict". This forces every read to really hit GitHub.
 async function fetchJson(path) {
-  const res = await fetch(`${apiUrl(path)}?ref=${CONFIG.branch}`, { headers: apiHeaders() });
+  const res = await fetch(`${apiUrl(path)}?ref=${CONFIG.branch}`, {
+    headers: apiHeaders(),
+    cache: 'no-store',
+  });
   if (res.status === 404) return { data: null, sha: null, missing: true };
   if (!res.ok) {
     throw new Error(`GitHub API: ${res.status} ${(await res.text()).slice(0, 200)}`);
@@ -94,14 +101,19 @@ async function fetchJson(path) {
   return { data, sha: body.sha, missing: false };
 }
 
-// Re-fetches `path`, applies `mutate(data)`, commits. Retries on write
-// conflicts so two people saving at the same moment both get through.
+// Pull-then-push with retry: re-fetches `path` fresh from GitHub, applies
+// `mutate(data)` on top of that latest version, and commits. If someone
+// else's commit lands in between (409), it waits a moment and redoes the
+// whole pull+push, so concurrent saves all get through.
 async function commitJson(path, mutate, message) {
   if (!getToken()) {
     throw new Error('No GitHub token set. Open ⚙ Settings to add one.');
   }
-  let lastErr;
-  for (let attempt = 0; attempt < 4; attempt++) {
+  for (let attempt = 0; attempt < 6; attempt++) {
+    if (attempt > 0) {
+      // brief randomized pause so two retrying clients don't collide again
+      await new Promise((r) => setTimeout(r, 400 + Math.random() * 800));
+    }
     const { data, sha } = await fetchJson(path);
     const updated = mutate(data);
     const body = {
@@ -116,7 +128,10 @@ async function commitJson(path, mutate, message) {
       body: JSON.stringify(body),
     });
     if (res.ok) return updated;
-    if (res.status === 409) { lastErr = new Error('Write conflict'); continue; }
+    const errText = (await res.text()).slice(0, 200);
+    if (res.status === 409 || (res.status === 422 && /sha/i.test(errText))) {
+      continue;   // someone saved in between — pull fresh and push again
+    }
     if (res.status === 401 || res.status === 403) {
       throw new Error('GitHub rejected the token (expired or missing write permission). Check ⚙ Settings.');
     }
@@ -124,9 +139,9 @@ async function commitJson(path, mutate, message) {
       throw new Error('Repository not reachable with this token — does it have access to ' +
         `${CONFIG.owner}/${CONFIG.repo}?`);
     }
-    throw new Error(`GitHub API: ${res.status} ${(await res.text()).slice(0, 200)}`);
+    throw new Error(`GitHub API: ${res.status} ${errText}`);
   }
-  throw lastErr || new Error('Could not save.');
+  throw new Error('Could not save — several people seem to be saving right now. Your change was NOT stored; please try again.');
 }
 
 async function fetchBookings() {

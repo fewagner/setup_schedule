@@ -110,10 +110,18 @@ const CONFIG = {
 ## How it works
 
 - The page fetches `data/bookings.json` through the GitHub Contents API.
-- Saving a booking re-fetches the file, appends the new entry, and commits it
-  back (`PUT /repos/.../contents/...`) with the file's `sha` for optimistic
-  locking. If two people save at the same moment, the loser gets a `409` and
-  automatically retries on top of the fresh version — no booking is lost.
+  All reads use `cache: 'no-store'` — the GitHub API marks responses as
+  cacheable for 60 s, and a browser-cached copy would mean stale calendars
+  and stale `sha`s (spurious write conflicts).
+- Saving is pull-then-push: the file is re-fetched fresh from GitHub, the
+  change is applied on top of that latest version, and the result is
+  committed back (`PUT /repos/.../contents/...`) with the file's `sha` for
+  optimistic locking. If someone else's commit lands in between, GitHub
+  answers `409`, and the app waits a randomized moment and redoes the whole
+  pull+push (up to 6 attempts) — no booking is lost, even when several
+  people save at once.
+- The page itself (HTML/JS) is served by GitHub Pages with a ~10 minute
+  CDN cache — that only delays app updates, never booking data.
 - Booking format:
 
   ```json
