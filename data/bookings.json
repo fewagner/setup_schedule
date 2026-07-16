@@ -243,15 +243,6 @@
     "createdAt": "2026-07-13T11:27:13.400Z"
   },
   {
-    "id": "57dbd72a-30eb-4c8e-ba04-bf55fae6a708",
-    "name": "Geneviève/Felix",
-    "setup": "Heater",
-    "start": "2026-07-16T04:00:00.000Z",
-    "end": "2026-07-16T22:00:00.000Z",
-    "note": "",
-    "createdAt": "2026-07-13T12:51:15.966Z"
-  },
-  {
     "id": "81292740-560f-44f6-bfc3-c841f5b8957e",
     "name": "Geneviève",
     "setup": "Heater",
