@@ -358,5 +358,14 @@
     "end": "2026-07-27T10:00:00.000Z",
     "note": "",
     "createdAt": "2026-07-19T11:09:25.356Z"
+  },
+  {
+    "id": "23684adc-8566-456d-8600-e84e3ff6ea20",
+    "name": "Installations",
+    "setup": "General Maintenance",
+    "start": "2026-07-24T06:00:00.000Z",
+    "end": "2026-07-24T14:00:00.000Z",
+    "note": "",
+    "createdAt": "2026-07-19T11:09:41.405Z"
   }
 ]
