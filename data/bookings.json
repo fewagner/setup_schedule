@@ -324,15 +324,6 @@
     "createdAt": "2026-07-19T10:40:10.361Z"
   },
   {
-    "id": "65e7954f-b3cb-4195-8717-0a25be734ed2",
-    "name": "Warm Up",
-    "setup": "General Maintenance",
-    "start": "2026-07-21T13:00:00.000Z",
-    "end": "2026-07-24T06:00:00.000Z",
-    "note": "",
-    "createdAt": "2026-07-19T11:08:53.670Z"
-  },
-  {
     "id": "f4f6e3b5-294d-4df0-b8fc-5c05302f32c0",
     "name": "Cool Down",
     "setup": "General Maintenance",
