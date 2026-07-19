@@ -324,15 +324,6 @@
     "createdAt": "2026-07-19T10:40:10.361Z"
   },
   {
-    "id": "e5098b98-352b-4d51-a0f8-bfc688a73a07",
-    "name": "Felix",
-    "setup": "General Maintenance",
-    "start": "2026-07-21T05:00:00.000Z",
-    "end": "2026-07-21T13:00:00.000Z",
-    "note": "",
-    "createdAt": "2026-07-19T11:08:24.292Z"
-  },
-  {
     "id": "65e7954f-b3cb-4195-8717-0a25be734ed2",
     "name": "Warm Up",
     "setup": "General Maintenance",
