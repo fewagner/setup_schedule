@@ -331,5 +331,14 @@
     "end": "2026-07-21T11:30:00.000Z",
     "note": "",
     "createdAt": "2026-07-20T22:58:59.763Z"
+  },
+  {
+    "id": "572a3c6b-0f0b-4fb0-af19-cbc2c4fe0926",
+    "name": "Felix Wagner",
+    "setup": "Quasiparticles",
+    "start": "2026-07-31T09:00:00.000Z",
+    "end": "2026-07-31T15:00:00.000Z",
+    "note": "",
+    "createdAt": "2026-07-30T08:23:23.172Z"
   }
 ]
