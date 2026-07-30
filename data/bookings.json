@@ -385,5 +385,14 @@
     "end": "2026-08-04T18:00:00.000Z",
     "note": "",
     "createdAt": "2026-07-30T13:23:35.639Z"
+  },
+  {
+    "id": "b65a380c-a01d-430a-a163-f57b2503e3bf",
+    "name": "Felix (Readout PSI)",
+    "setup": "Quasiparticles",
+    "start": "2026-08-05T06:00:00.000Z",
+    "end": "2026-08-05T15:00:00.000Z",
+    "note": "",
+    "createdAt": "2026-07-30T13:23:53.640Z"
   }
 ]
