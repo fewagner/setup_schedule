@@ -340,14 +340,5 @@
     "end": "2026-07-31T15:00:00.000Z",
     "note": "",
     "createdAt": "2026-07-30T08:23:23.172Z"
-  },
-  {
-    "id": "156beaae-2a47-4fe8-9eaf-b61c51ffd00d",
-    "name": "Elizabeth Kunz",
-    "setup": "Quasiparticles",
-    "start": "2026-08-01T04:00:00.000Z",
-    "end": "2026-08-01T10:00:00.000Z",
-    "note": "",
-    "createdAt": "2026-07-30T08:24:34.601Z"
   }
 ]
