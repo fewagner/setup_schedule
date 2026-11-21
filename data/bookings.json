@@ -439,5 +439,14 @@
     "end": "2026-11-21T06:00:00.000Z",
     "note": "chips A, C",
     "createdAt": "2026-11-20T22:05:08.698Z"
+  },
+  {
+    "id": "8c92c525-37ca-4422-8cd2-15abfc20621b",
+    "name": "Jakov Wallbrecher",
+    "setup": "Quasiparticles",
+    "start": "2026-11-21T20:00:00.000Z",
+    "end": "2026-11-21T22:30:00.000Z",
+    "note": "",
+    "createdAt": "2026-11-21T00:27:45.653Z"
   }
 ]
