@@ -466,5 +466,14 @@
     "end": "2026-11-22T13:30:00.000Z",
     "note": "",
     "createdAt": "2026-11-22T00:19:49.373Z"
+  },
+  {
+    "id": "c95a027c-e7b9-4ed7-af2c-91a4aa2b5cfe",
+    "name": "Jakov Wallbrecher",
+    "setup": "Quasiparticles",
+    "start": "2026-11-22T13:30:00.000Z",
+    "end": "2026-11-22T16:00:00.000Z",
+    "note": "",
+    "createdAt": "2026-11-22T12:56:48.396Z"
   }
 ]
